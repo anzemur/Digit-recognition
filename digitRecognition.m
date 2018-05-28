@@ -1,3 +1,0 @@
-function digitRecognition(image)
-
-end
