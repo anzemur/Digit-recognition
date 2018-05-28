@@ -85,7 +85,7 @@ Mat moveToMassCenter(Mat src)
 int main(int argc, char** argv)
 {
 	Mat src, gray,rotated,cropped;
-	src = imread("C:/Users/Likewse/Documents/digit-recognition/9.jpg");
+	src = imread("C:/Users/Likewse/Documents/digit-recognition/66.jpg");
 	if (src.empty())
 		return -1;
 
@@ -97,7 +97,7 @@ int main(int argc, char** argv)
 	findContours(gray.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
 	RotatedRect _minAreaRect;
-	int cnt = 1;
+	int cnt = 51;
 	for (size_t i = 0; i < contours.size(); ++i)
 	{
 		_minAreaRect = minAreaRect(Mat(contours[i]));
@@ -149,7 +149,7 @@ int main(int argc, char** argv)
 	}
 	Mat dst_src;
 	resize(src, dst_src,Size(src.cols*0.25,src.rows*0.25));
-	imshow("result", dst_src);
+	//imshow("result", dst_src);
 	waitKey(0);
 	return 0;
 }
