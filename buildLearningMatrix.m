@@ -3,7 +3,7 @@ function A = buildLearningMatrix(path,number)
 % to column vector and puts them side by side into the matrix
 % Path example: "../digit-recognition/digits/1/"
 
-path = strcat(strcat(strcat(path,'/'),num2str(number)),'/');
+path = strcat(strcat(strcat(path,'/learning/'),num2str(number)),'/');
 elCnt = length(dir(path)) - 2; % because of . and ..
 A = [];
 
