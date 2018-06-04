@@ -1,4 +1,4 @@
-function digitRecognitionTest(testFunc,folderPath)
+function digitRecognitionTest(testFunc,folderPath, singVals)
 
 
 
@@ -18,7 +18,7 @@ for i=0:9
     dirCnt = length(dir(path))-2;
     for j=70:(70+dirCnt-1)
         imgPath = strcat(path,strcat(num2str(j),'.jpeg'));
-        recog = testFunc(imgPath,data);
+        recog = testFunc(imgPath,data,singVals);
         if (recog == i)
             correctCnt++;
         end

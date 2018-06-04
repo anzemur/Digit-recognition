@@ -30,5 +30,6 @@ for k=1:ntest
 end
 x = linspace(1,ntest,ntest);
 plot(x,eff);
+title("Tocnost napovedi v odvisnosti od števila singularnih vrednosti.")
 
 end
