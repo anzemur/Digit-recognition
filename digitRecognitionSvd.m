@@ -1,8 +1,9 @@
-function recog = digitRecognitionSvd(imagePath,data)
+function recog = digitRecognitionSvd(imagePath,data,singVals)
 
 image = imread(imagePath);
+%image = image ./ 255;
 imageColumn = double(convertToColumn(image));
-nSingularVal = 2;
+nSingularVal = singVals;
 norms = [];
 for i=0:9
 

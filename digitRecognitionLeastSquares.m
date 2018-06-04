@@ -1,4 +1,4 @@
-function recog = digitRecognitionLeastSquares(imagePath,data)
+function recog = digitRecognitionLeastSquares(imagePath,data,singVals)
 
 image = imread(imagePath);
 imageColumn = double(convertToColumn(image));
