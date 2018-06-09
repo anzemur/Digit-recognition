@@ -1,0 +1,126 @@
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+%\textsc{\LARGE Uppsala University}\\[1.5cm] % Name of your university/college
+\includegraphics[scale=.2]{images/fri_logo.png}\vspace{1.8cm}\\[1cm] % Include a department/university logo - this will require the graphicx package
+\textsc{\Large Mathematical modeling}\\[0.5cm] % Major heading such as course name
+\textsc{\large project assignment}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge  Hand-written numerals recognition}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} \large
+	\emph{Authors:}\\
+	Andrej Hafner\\ % Your name
+	Anže Mur\vspace{1 cm}\\ % Your name
+\end{flushleft}
+
+\begin{flushleft} \large
+	\emph{Mentors:}\\
+	as. dr. Damir Franetič\\ % Your name
+	prof. dr. Nežka Mramor Kosta \vspace{0.7 cm}\\ % Your name
+\end{flushleft}
+
+
+\end{minipage}\\[2cm]
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\section{Problem introduction:}
+Handwritten numerals recognition  is the ability of a computer to receive and interpret handwritten input from sources such as paper documents, photographs and other medias. Early optical character recognition (OCR) may be traced to technologies involving telegraphy and creating reading devices for the blind and from that cause we received many good OCR methods. In past decade handwritten digit recognition (and other OCR methods) has become very important task in every day life. The reason for its increasing popularity is because of its enormous set of practical applications. Hand written digit recognition helps us to solve various complex problems and saves us allot of time. We can see some of its everyday practical uses in automatic processing of bank checks, postal zip code recognition, signatures validation and many others.\\
+\newline
+In our project assignment we had to tackle the problem with two different handwritten digit recognition methods- Least squares method and Singular-value decomposition (SVD) method.
+
+\newpage
+\section{Data collecting:}
+In order to use those two methods we had to collect some data. We needed a big enough data set so the recognition would work better and we would have enough testing samples. So we created a template and pass it around to our acquaintances. The template format is very simple - we have ten squares and atop of every square there is a digit (from 0-9) a user should write to the center of the square.
+%slika
+\begin{figure}[h]
+	\centering
+	\includegraphics[clip,scale=0.62]{images/empty_temp.png}
+	\caption[]{Data collection template.}
+	
+\end{figure}
+\newline
+Our data collection was very successful and we gathered samples from 80 people (thats 800 handwritten digits). But we soon realized that our data was not formated correctly. People have different style of writing so some of them didn't wrote the digits in the center of the square. That problem would significantly decrees the precision of the algorithms. So we wrote a program in C++ using OpenCV libraries. The program detects a square and cuts it out of an image and then computes the mass center of it. Then it creates a new square which is four times bigger than the original and pastes the the cut out square in the middle of the new square so that the mass center and the center of the big square are aligned. When the number is in place program computes the new angles of the square around the number and cuts it out of the big square. So now we have a perfectly aligned handwritten data piece.\\
+\newline
+We divided our data in two sets - training set and testing set. Most of the data (90\%) is in our training set and the rest (10\%) is in our testing set.\\
+
+\newpage
+%slika
+\begin{figure}[h]
+	\centering
+	\includegraphics[clip,scale=0.9]{images/diagram.png}
+	\caption[]{Process diagram of our C++ program.}
+	
+\end{figure}
+
+
+
+\newpage
+\section{Methods:}
+For our assignment we used two different methods for numeral handwritten recognition.\\
+\newline
+\textbf{1. Least squares mathod:}\\ 
+\newline
+\textbf{About the method:}\\
+The method of least squares is a standard approach in regression analysis to approximate the solution of overdetermined systems, which are, sets of equations in which there are more equations than unknowns. Expression "least squares" means that the overall solution minimizes the sum of the squares of the residuals made in the results of every single equation.\\
+\newline
+\textbf{Handwritten digit detection with least squares method:}\\
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[clip,scale=0.7]{images/squares.png}
+	\caption[]{Process diagram of least squares method matrix preparation.}
+	
+\end{figure}
+
+\newpage
+Lets say that we want know if one of our images from test set represents the digit $i$ (where $i = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9.}$ ). So we take all of the images that represents digit $i$ from our learning set and we put them in a vector - we take every column from an image and we put them in the right order one under another. We do this for every image and we take those vectors and put them next to one another (as we can see on the diagram above) so we construct a matrix \textbf{$A_{i}$}.\\
+Now lets say that $b$ is a vector that represents our test image (we construct vector $b$ in the same way that we construct image vectors). Now we have a system $A_{i}x = b$. In general this system doesn't have a solution but we can solve it with the use of minimal norm - so we get the best approximation of the solution. We create the matrices $A_{i}$ for every digit from our learning set and we compute the solution of the system $x_{i} = A^{+}_{i}b$ for every $i$. Then we choose the $i$ for which the value of $|| b - A_{i}x_{i} ||$ is minimal. The $i$ that we get is the digit that we recognized.
+
+
+
+\end{document}
