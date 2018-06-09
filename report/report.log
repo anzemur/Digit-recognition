@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.9)  9 JUN 2018 15:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.9)  9 JUN 2018 18:24
 entering extended mode
 **./report.tex
 (report.tex
@@ -658,91 +658,94 @@ File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 [1
 
 {C:/Users/MurG/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/fri
-_logo.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 70--73
+_logo.png>] (report.toc)
+\tf@toc=\write4
+\openout4 = `report.toc'.
+
+ [1] (report.lof)
+\tf@lof=\write5
+\openout5 = `report.lof'.
+
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 75--78
 
  []
 
-[1]
-<images/empty_temp.png, id=19, 386.4036pt x 91.542pt>
+[3]
+<images/empty_temp.png, id=25, 386.4036pt x 91.542pt>
 File: images/empty_temp.png Graphic file (type png)
 <use images/empty_temp.png>
-Package pdftex.def Info: images/empty_temp.png  used on input line 80.
+Package pdftex.def Info: images/empty_temp.png  used on input line 85.
 (pdftex.def)             Requested size: 239.56775pt x 56.75545pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--88
+Underfull \hbox (badness 10000) in paragraph at lines 81--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--88
+Underfull \hbox (badness 10000) in paragraph at lines 81--93
 
  []
 
-[2 <./images/empty_temp.png>]
-<images/diagram.png, id=26, 454.69875pt x 278.03876pt>
+[4 <./images/empty_temp.png>]
+<images/diagram.png, id=32, 454.69875pt x 278.03876pt>
 File: images/diagram.png Graphic file (type png)
 <use images/diagram.png>
-Package pdftex.def Info: images/diagram.png  used on input line 93.
+Package pdftex.def Info: images/diagram.png  used on input line 98.
 (pdftex.def)             Requested size: 409.22508pt x 250.23256pt.
 
-Overfull \hbox (19.22508pt too wide) in paragraph at lines 93--94
+Overfull \hbox (19.22508pt too wide) in paragraph at lines 98--99
  [][] 
  []
 
-[3 <./images/diagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 102--110
+[5 <./images/diagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--110
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 102--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 102--110
-
- []
-
-<images/squares.png, id=33, 598.235pt x 382.42876pt>
+<images/squares.png, id=39, 598.235pt x 382.42876pt>
 File: images/squares.png Graphic file (type png)
 <use images/squares.png>
-Package pdftex.def Info: images/squares.png  used on input line 115.
+Package pdftex.def Info: images/squares.png  used on input line 118.
 (pdftex.def)             Requested size: 418.76164pt x 267.69829pt.
 
-Overfull \hbox (28.76164pt too wide) in paragraph at lines 115--116
- [][] 
+Overfull \hbox (28.76164pt too wide) in paragraph at lines 118--119
+ [][]$[]$ 
  []
 
-[4 <./images/squares.png>] [5] (report.aux) ) 
+[6 <./images/squares.png>] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+[8] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 14377 strings out of 493303
- 281221 string characters out of 3130220
+ 14384 strings out of 493303
+ 281386 string characters out of 3130220
  326274 words of memory out of 3000000
- 17632 multiletter control sequences out of 15000+200000
- 9810 words of font info for 35 fonts, out of 3000000 for 9000
+ 17633 multiletter control sequences out of 15000+200000
+ 10117 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,56p,920b,699s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/MurG/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/MurG/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users
-/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.p
-fb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/MurG/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/MurG/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (6 pages, 278557 bytes).
+<C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/MurG/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/MurG/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Mur
+G/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
+:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr17.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on report.pdf (9 pages, 282751 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
+ 86 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

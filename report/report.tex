@@ -66,19 +66,24 @@
 
 \end{titlepage}
 
-\section{Problem introduction:}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+\section{Problem introduction}
 Handwritten numerals recognition  is the ability of a computer to receive and interpret handwritten input from sources such as paper documents, photographs and other medias. Early optical character recognition (OCR) may be traced to technologies involving telegraphy and creating reading devices for the blind and from that cause we received many good OCR methods. In past decade handwritten digit recognition (and other OCR methods) has become very important task in every day life. The reason for its increasing popularity is because of its enormous set of practical applications. Hand written digit recognition helps us to solve various complex problems and saves us allot of time. We can see some of its everyday practical uses in automatic processing of bank checks, postal zip code recognition, signatures validation and many others.\\
 \newline
 In our project assignment we had to tackle the problem with two different handwritten digit recognition methods- Least squares method and Singular-value decomposition (SVD) method.
 
 \newpage
-\section{Data collecting:}
+\section{Data collecting}
 In order to use those two methods we had to collect some data. We needed a big enough data set so the recognition would work better and we would have enough testing samples. So we created a template and pass it around to our acquaintances. The template format is very simple - we have ten squares and atop of every square there is a digit (from 0-9) a user should write to the center of the square.
 %slika
 \begin{figure}[h]
 	\centering
 	\includegraphics[clip,scale=0.62]{images/empty_temp.png}
-	\caption[]{Data collection template.}
+	\caption[Data collection template]{Data collection template.}
 	
 \end{figure}
 \newline
@@ -91,19 +96,17 @@ We divided our data in two sets - training set and testing set. Most of the data
 \begin{figure}[h]
 	\centering
 	\includegraphics[clip,scale=0.9]{images/diagram.png}
-	\caption[]{Process diagram of our C++ program.}
+	\caption[Process diagram of our C++ program]{Process diagram of our C++ program.}
 	
 \end{figure}
 
 
 
 \newpage
-\section{Methods:}
-For our assignment we used two different methods for numeral handwritten recognition.\\
-\newline
-\textbf{1. Least squares mathod:}\\ 
-\newline
-\textbf{About the method:}\\
+\section{Used methods}
+For our assignment we used two different methods for numeral handwritten recognition.
+\subsection{Least squares method}
+\textbf{About the method}\\
 The method of least squares is a standard approach in regression analysis to approximate the solution of overdetermined systems, which are, sets of equations in which there are more equations than unknowns. Expression "least squares" means that the overall solution minimizes the sum of the squares of the residuals made in the results of every single equation.\\
 \newline
 \textbf{Handwritten digit detection with least squares method:}\\
@@ -112,8 +115,8 @@ The method of least squares is a standard approach in regression analysis to app
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[clip,scale=0.7]{images/squares.png}
-	\caption[]{Process diagram of least squares method matrix preparation.}
+	\includegraphics[clip,scale=0.7]{images/squares.png}\underline{}
+	\caption[Process diagram of least squares method matrix preparation]{Process diagram of least squares method matrix preparation.}
 	
 \end{figure}
 
@@ -121,6 +124,8 @@ The method of least squares is a standard approach in regression analysis to app
 Lets say that we want know if one of our images from test set represents the digit $i$ (where $i = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9.}$ ). So we take all of the images that represents digit $i$ from our learning set and we put them in a vector - we take every column from an image and we put them in the right order one under another. We do this for every image and we take those vectors and put them next to one another (as we can see on the diagram above) so we construct a matrix \textbf{$A_{i}$}.\\
 Now lets say that $b$ is a vector that represents our test image (we construct vector $b$ in the same way that we construct image vectors). Now we have a system $A_{i}x = b$. In general this system doesn't have a solution but we can solve it with the use of minimal norm - so we get the best approximation of the solution. We create the matrices $A_{i}$ for every digit from our learning set and we compute the solution of the system $x_{i} = A^{+}_{i}b$ for every $i$. Then we choose the $i$ for which the value of $|| b - A_{i}x_{i} ||$ is minimal. The $i$ that we get is the digit that we recognized.
 
-
+\newpage
+\subsection{Singular-value decomposition (SVD) method}
+\textbf{About the method}\\
 
 \end{document}
