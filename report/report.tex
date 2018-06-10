@@ -78,7 +78,7 @@ In our project assignment we had to tackle the problem with two different handwr
 
 \newpage
 \section{Data collecting}
-In order to use those two methods we had to collect some data. We needed a big enough data set so the recognition would work better and we would have enough testing samples. So we created a template and pass it around to our acquaintances. The template format is very simple - we have ten squares and atop of every square there is a digit (from 0-9) a user should write to the center of the square.
+In order to use those two methods we had to collect some data. We needed a big enough data set so the recognition would work better and we would have enough testing samples.We created a template and pass it around to our acquaintances. The template format is very simple - we have ten squares and atop of every square there is a digit (from 0-9) a user should write to the center of the square.
 %slika
 \begin{figure}[h]
 	\centering
@@ -87,7 +87,7 @@ In order to use those two methods we had to collect some data. We needed a big e
 	
 \end{figure}
 \newline
-Our data collection was very successful and we gathered samples from 80 people (thats 800 handwritten digits). But we soon realized that our data was not formated correctly. People have different style of writing so some of them didn't wrote the digits in the center of the square. That problem would significantly decrees the precision of the algorithms. So we wrote a program in C++ using OpenCV libraries. The program detects a square and cuts it out of an image and then computes the mass center of it. Then it creates a new square which is four times bigger than the original and pastes the the cut out square in the middle of the new square so that the mass center and the center of the big square are aligned. When the number is in place program computes the new angles of the square around the number and cuts it out of the big square. So now we have a perfectly aligned handwritten data piece.\\
+Our data collection was very successful and we gathered samples from 80 people (thats 800 handwritten digits). We soon realized that our data was not formated correctly. People have different style of writing so some of them didn't wrote the digits in the center of the square. That problem would significantly decrease the precision of the algorithms. Therefore we wrote a program in C++ using OpenCV libraries. It detects a square and cuts it out of an image and then computes the mass center of it. Then it creates a new square which is four times bigger than the original and pastes the the cut out square in the middle of the new square so that the mass center and the center of the big square are aligned. When the number is in place program computes the new angles of the square around the number and cuts it out of the big square. Now we have a perfectly aligned handwritten data piece.\\
 \newline
 We divided our data in two sets - training set and testing set. Most of the data (90\%) is in our training set and the rest (10\%) is in our testing set.\\
 
@@ -121,7 +121,7 @@ The method of least squares is a standard approach in regression analysis to app
 \end{figure}
 
 \newpage
-Lets say that we want know if one of our images from test set represents the digit $i$ (where $i = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9.}$ ). So we take all of the images that represents digit $i$ from our learning set and we put them in a vector - we take every column from an image and we put them in the right order one under another. We do this for every image and we take those vectors and put them next to one another (as we can see on the diagram above) so we construct a matrix \textbf{$A_{i}$}.\\
+Let's say that we want know if one of our images from test set represents the digit $i$ (where $i = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9.}$ ).We take all of the images that represents digit $i$ from our learning set and we put them in a vector - we take every column from an image and we put them in the right order one under another. We do this for every image and we take those vectors and put them next to one another (as we can see on the diagram above) to construct a matrix \textbf{$A_{i}$}.\\
 Now lets say that $b$ is a vector that represents our test image (we construct vector $b$ in the same way that we construct image vectors). Now we have a system $A_{i}x = b$. In general this system doesn't have a solution but we can solve it with the use of minimal norm - so we get the best approximation of the solution. We create the matrices $A_{i}$ for every digit from our learning set and we compute the solution of the system $x_{i} = A^{+}_{i}b$ for every $i$. Then we choose the $i$ for which the value of $|| b - A_{i}x_{i} ||$ is minimal. The $i$ that we get is the digit that we recognized.
 
 \newpage
