@@ -72,7 +72,11 @@
 \newpage
 
 \section{Problem introduction}
+<<<<<<< HEAD
 Handwritten numerals recognition  is the ability of a computer to receive and interpret handwritten input from sources such as paper documents, photographs and other medias. Early optical character recognition (OCR) may be traced to technologies involving telegraphy and creating reading devices for the blind and from that cause we received many good OCR methods. In past decade handwritten digit recognition (and other OCR methods) has become very important task in every day life. The reason for its increasing popularity is because of its enormous set of practical applications. Hand written digit recognition helps us to solve various complex problems and saves us a lot of time. We can see some of its everyday practical uses in automatic processing of bank checks, postal zip code recognition, signatures validation and many others.\\
+=======
+Handwritten numerals recognition  is the ability of a computer to receive and interpret handwritten input from sources such as paper documents, photographs and other media. Early optical character recognition (OCR) may be traced to technologies involving telegraphy and creating reading devices for the blind and from that cause we received many good OCR methods. In past decade handwritten digit recognition (and other OCR methods) has become very important task in every day life. The reason for its increasing popularity is because of its enormous set of practical applications. Hand written digit recognition helps us to solve various complex problems and saves us allot of time. We can see some of its everyday practical uses in automatic processing of bank checks, postal zip code recognition, signatures validation and many others.\\
+>>>>>>> 65bca9402214a0165e6f0cf0287d0b77e5556f40
 \newline
 In our project assignment we had to tackle the problem with two different handwritten digit recognition methods- Least squares method and Singular-value decomposition (SVD) method.
 
@@ -107,27 +111,73 @@ We divided our data in two sets - training set and testing set. Most of the data
 For our assignment we used two different methods for numeral handwritten recognition.
 \subsection{Least squares method}
 \textbf{About the method}\\
-The method of least squares is a standard approach in regression analysis to approximate the solution of overdetermined systems, which are, sets of equations in which there are more equations than unknowns. Expression "least squares" means that the overall solution minimizes the sum of the squares of the residuals made in the results of every single equation.\\
 \newline
-\textbf{Handwritten digit detection with least squares method:}\\
+The method of least squares is a standard approach in regression analysis. We can approximate the solution of overdetermined systems that consists of sets of equations in which there are more equations than unknowns. Expression "least squares" means that the overall solution minimizes the sum of the squares and the errors made in the results of every single equation.\\
+\newline
+\textbf{Handwritten digit detection with least squares method:}
 
 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[clip,scale=0.7]{images/squares.png}\underline{}
+	\includegraphics[clip,scale=0.68]{images/matrike.png}\underline{}
 	\caption[Process diagram of least squares method matrix preparation]{Process diagram of least squares method matrix preparation.}
 	
 \end{figure}
 
 \newpage
-Let's say that we want know if one of our images from test set represents the digit $i$ (where $i = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9.}$ ).We take all of the images that represents digit $i$ from our learning set and we put them in a vector - we take every column from an image and we put them in the right order one under another. We do this for every image and we take those vectors and put them next to one another (as we can see on the diagram above) to construct a matrix \textbf{$A_{i}$}.\\
-Now lets say that $b$ is a vector that represents our test image (we construct vector $b$ in the same way that we construct image vectors). Now we have a system $A_{i}x = b$. In general this system doesn't have a solution but we can solve it with the use of minimal norm - so we get the best approximation of the solution. We create the matrices $A_{i}$ for every digit from our learning set and we compute the solution of the system $x_{i} = A^{+}_{i}b$ for every $i$. Then we choose the $i$ for which the value of $|| b - A_{i}x_{i} ||$ is minimal. The $i$ that we get is the digit that we recognized.
+Let's say that we want know if one of our images from test set represents the digit $i$ (where $i = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}$ ).We take all of the images that represents digit $i$ from our learning set and we put them in a vector - we take every column from an image and we put them in the right order one under another. We do this for every image and we take those vectors and put them next to one another (as we can see on the diagram above) to construct a matrix \textbf{$A_{i}$}.\\
+\newline
+Now lets say that $b$ is a vector that represents our test image (we construct vector $b$ in the same way that we construct image vectors). Now we have a system $A_{i}x = b$. In general this system doesn't have a solution but we can solve it with the use of minimal norm - so we get the best approximation of the solution. We create the matrices $A_{i}$ for every digit from our learning set and we compute the solution of the system $x_{i} = A^{+}_{i}b$ for every $i$. Then we choose the $i$ for which the value of $|| b - A_{i}x_{i} ||$ is minimal. The $i$ that we get is the digit that we recognized.\\
+\newline
+You can see the implementation in file $digitRecognitionLeastSquares.m$.
 
 \newpage
 \subsection{Singular-value decomposition (SVD) method}
 \textbf{About the method}\\
+\newline
+In linear algebra, the singular-value decomposition is a factorization of a real or complex matrix.
+We define SVD of a matrix \textbf{A} as:\\
+\[
+A = U S V^{T}
+\]
+\newline
+Where the matrices:
+\begin{itemize}
+	\item $U$: has columns that are the left singular vectors
+	\item $S$: has singular values and is diagonal
+	\item $V^{T}$: has rows that are the right singular vectors
+\end{itemize}
+The SVD represents the original data in a coordinate system where the covariance matrix is diagonal.\\
+\newline
+\textbf{Handwritten digit detection with SVD method:}\\
+\newline
+The least squares method is usually not really efficient and it takes allot of time to compute the answer. So it is better to use the SVD method. We prepare the data in the same way as before so that:
+\begin{itemize}
+	\item $A_{i}$ is our matrix built from learning images (for $i = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9$),
+	\item $b$ is our input/test image as a vector,
+	\item and $x_{i}$ is solution we are looking for.
+\end{itemize}
+After we prepare our data we compute the singular value decomposition of the matrix $A_{i}$:\\
+\[
+A_{i} = U_{i} S_{i} V^{T}_{i}
+\]
+\newline
+And then we search for solutions of the systems 
+\[
+U_{i} S_{i} y_{i} = b ;\quad \rlap{\text for every {$i$}}
+\]
+\newline
+where:
+\[
+y_{i} = V^{T}_{i} x_{i}
+\]\\
+\newline
+We get the solution in a similar way as before as we choose the $i$ for which the value of  \textbf{$|| U^{T}_{i} b - S_{i}y_{i} ||$}  is minimal.\\
+\newline
+You can see the implementation in file $digitRecognitionSvd.m$.
 
+\newpage
 \section{Theoretical basis}
 We use the singular value decomposition to transform matrix $A_i$ into $U_iS_iV_i^{T}$. Digit recognition is the performed by solving finding solutions for systems of equations $U_iS_iy_i = b$, where $y_i = V^Tx_i$ and $b$ is the column vector of an image with the digit we are trying to recognize. The $U_i^{T}b - S_iy_i$ with the minimal norm is the solution and the digit recognized. \\
 \newline
@@ -175,6 +225,8 @@ The matrix $U$ has columns that form a set of orthonormal vectors (further expla
 ||U_i(b - A_ix_i)|| = ||b - A_ix_i||
 \]
 
+\newpage
+\section{Conclusion}
 
 
 
