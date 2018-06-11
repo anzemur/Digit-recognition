@@ -72,11 +72,8 @@
 \newpage
 
 \section{Problem introduction}
-<<<<<<< HEAD
+
 Handwritten numerals recognition  is the ability of a computer to receive and interpret handwritten input from sources such as paper documents, photographs and other medias. Early optical character recognition (OCR) may be traced to technologies involving telegraphy and creating reading devices for the blind and from that cause we received many good OCR methods. In past decade handwritten digit recognition (and other OCR methods) has become very important task in every day life. The reason for its increasing popularity is because of its enormous set of practical applications. Hand written digit recognition helps us to solve various complex problems and saves us a lot of time. We can see some of its everyday practical uses in automatic processing of bank checks, postal zip code recognition, signatures validation and many others.\\
-=======
-Handwritten numerals recognition  is the ability of a computer to receive and interpret handwritten input from sources such as paper documents, photographs and other media. Early optical character recognition (OCR) may be traced to technologies involving telegraphy and creating reading devices for the blind and from that cause we received many good OCR methods. In past decade handwritten digit recognition (and other OCR methods) has become very important task in every day life. The reason for its increasing popularity is because of its enormous set of practical applications. Hand written digit recognition helps us to solve various complex problems and saves us allot of time. We can see some of its everyday practical uses in automatic processing of bank checks, postal zip code recognition, signatures validation and many others.\\
->>>>>>> 65bca9402214a0165e6f0cf0287d0b77e5556f40
 \newline
 In our project assignment we had to tackle the problem with two different handwritten digit recognition methods- Least squares method and Singular-value decomposition (SVD) method.
 
@@ -130,7 +127,7 @@ Let's say that we want know if one of our images from test set represents the di
 \newline
 Now lets say that $b$ is a vector that represents our test image (we construct vector $b$ in the same way that we construct image vectors). Now we have a system $A_{i}x = b$. In general this system doesn't have a solution but we can solve it with the use of minimal norm - so we get the best approximation of the solution. We create the matrices $A_{i}$ for every digit from our learning set and we compute the solution of the system $x_{i} = A^{+}_{i}b$ for every $i$. Then we choose the $i$ for which the value of $|| b - A_{i}x_{i} ||$ is minimal. The $i$ that we get is the digit that we recognized.\\
 \newline
-You can see the implementation in file $digitRecognitionLeastSquares.m$.
+With the use of the least squares method, we achieved 94\% precision. You can see the implementation in file $digitRecognitionLeastSquares.m$.
 
 \newpage
 \subsection{Singular-value decomposition (SVD) method}
@@ -175,8 +172,15 @@ y_{i} = V^{T}_{i} x_{i}
 \newline
 We get the solution in a similar way as before as we choose the $i$ for which the value of  \textbf{$|| U^{T}_{i} b - S_{i}y_{i} ||$}  is minimal.\\
 \newline
-You can see the implementation in file $digitRecognitionSvd.m$.
-
+\newline
+With the use of the SVD method, we achieved 96\% precision. You can see the implementation in file $digitRecognitionSvd.m$.
+\newline
+\begin{figure}[h]
+	\centering
+	\includegraphics[clip,scale=0.375]{images/numbers.png}\underline{}
+	\caption[Left singular vectors as images]{Left singular vectors as images. In the first row 5th, 200th and 800th left singular vector of number 4, and in the second row 5th, 200th and 800th left singular vector of number 7.}
+	
+\end{figure}
 \newpage
 \section{Theoretical basis}
 We use the singular value decomposition to transform matrix $A_i$ into $U_iS_iV_i^{T}$. Digit recognition is the performed by solving finding solutions for systems of equations $U_iS_iy_i = b$, where $y_i = V^Tx_i$ and $b$ is the column vector of an image with the digit we are trying to recognize. The $U_i^{T}b - S_iy_i$ with the minimal norm is the solution and the digit recognized. \\
@@ -230,6 +234,12 @@ The matrix $U$ has columns that form a set of orthonormal vectors (further expla
 
 We used SVD to generate matrices $U$ $S$ and $V^T$. For recognition we can only store matrices $U$ and $S$. Because of the way that SVD works, the first $n$ singular values and left singular vectors hold most of the "patterns" or information needed for recognition. Because of this we can use only first $n$ singular values and left singular vectors for recognition, and still keep good accuracy at recognition. This means that we can only store those first $n$ values for each number. By doing this we reduce the size of the files (a file with U and V matrix for 80 learning examples can be as big as 10MB) and accelerate the calculation since there is less multiplication. We achieved best accuracy of 96\% when using 11 singular values. Using a lot of singular values can actually reduce the accuracy, since there is a lot of noise in the higher left singular vectors.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[clip,scale=0.68]{images/error_graph.png}\underline{}
+	\caption[Precision of the forecast]{Precision of the forecast depending on the number of singular values.}
+	
+\end{figure}
 
 
 \end{document}
