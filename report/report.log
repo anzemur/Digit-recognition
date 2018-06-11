@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.9)  11 JUN 2018 21:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.9)  11 JUN 2018 21:28
 entering extended mode
 **./report.tex
 (report.tex
@@ -708,17 +708,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--114
 
  []
 
-<images/squares.png, id=39, 598.235pt x 382.42876pt>
-File: images/squares.png Graphic file (type png)
-<use images/squares.png>
-Package pdftex.def Info: images/squares.png  used on input line 119.
-(pdftex.def)             Requested size: 418.76164pt x 267.69829pt.
-
-Overfull \hbox (28.76164pt too wide) in paragraph at lines 119--120
- [][]$[]$ 
- []
-
-[6 <./images/squares.png>]
+<images/matrike.png, id=39, 527.0892pt x 358.4592pt>
+File: images/matrike.png Graphic file (type png)
+<use images/matrike.png>
+Package pdftex.def Info: images/matrike.png  used on input line 119.
+(pdftex.def)             Requested size: 358.41592pt x 243.74902pt.
+[6 <./images/matrike.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 125--130
 
  []
@@ -846,7 +841,7 @@ lic/amsfonts/cm/cmr8.pfb><C:/Users/MurG/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/MurG/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/MurG/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (13 pages, 306462 bytes).
+Output written on report.pdf (13 pages, 353216 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
