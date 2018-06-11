@@ -128,4 +128,56 @@ Now lets say that $b$ is a vector that represents our test image (we construct v
 \subsection{Singular-value decomposition (SVD) method}
 \textbf{About the method}\\
 
+\section{Theoretical basis}
+We use the singular value decomposition to transform matrix $A_i$ into $U_iS_iV_i^{T}$. Digit recognition is the performed by solving finding solutions for systems of equations $U_iS_iy_i = b$, where $y_i = V^Tx_i$ and $b$ is the column vector of an image with the digit we are trying to recognize. The $U_i^{T}b - S_iy_i$ with the minimal norm is the solution and the digit recognized. \\
+\newline
+\textbf{Show that $||x_i|| = ||y_i||$} 
+\newline
+We use SVD on matrix $A$:
+
+\[
+A^{k \times p} = U^{k \times k}S^{k \times p}(V^T)^{p \times p}
+\]
+\newline
+Where $p$ is the number of learning examples and $k$ equals $1024$ since our learning examples images were of size $32 \times 32$ and when we stack their columns one on top of another, we get a vector with dimension $1024 \times 1$. Then we stack these vectors next to eachother to create the matrix $A^{k \times p}$. \\
+\newline
+Because $y_i = V^Tx_i$ we get:
+\newline
+\[
+ ||x_i^{p \times 1}|| = || (V^T)^{ p \times p} x_i^{p \times 1}||
+\]
+\newline
+where $V^T$ (and also $U$) is a real unitary matrix, of which columns form a set of $orthonormal$ vectors. A set of vectors is orthonormal if they are $orthogonal$ to each other and are $unit$ vectors. An unit vector has a length of 1 and if you multiply a vector by an unit vector, it will only change it's direction, but not it's $norm$ (length). By the definition of a unitary matrix, the same is true for conjugate transposes of $V^T$ and $U$. This means that columns of $V$, $V^T$, $U$ and $U^T$ all form a set of orthonormal vectors. \\
+\newline
+We can conclude that multiplying $x_i$ by $V^T$ which results in $y_i$ will only change it's direction and not it's norm. Therefore it holds that $||x_i|| = ||y_i||$. \\
+\newline
+\textbf{Show that $||b - A_ix_i|| = ||U_i^{T}b - S_iy_i||$} \\
+If we remove the norms from both sides of equation we get:\\
+
+\[
+b^{k \times 1} - A_i^{k \times p} x_i^{p \times 1} = (U_i^{T})^{k \times k}b^{k \times 1} - S_i^{k \times p}y_i^{p \times 1}
+\]
+\newline
+where $k$ and $p$ have the same meaning as in the previous proof. Then we multiply the equation from the left side with $U_i^{k \times k}$ and use $y_i = V^Tx_i$. \\
+
+\[
+U_i^{k \times k}b^{k \times 1} - U_i^{k \times k}A_i^{k \times p} x_i^{p \times 1} = U_i^{k \times k}(U_i^{T})^{k \times k}b^{k \times 1} - U_i^{k \times k}S_i^{k \times p}(V_i^{T})^{p \times p}x_i^{p \times 1}
+\]
+\newline
+Because $U$ is a unitary matrix, multiplying it by it's conjugate transpose yields an $identity$ matrix ($UU^T = I$). Multiplying a vector by an identity matrix will yield an identical vector. By removing the dimensions, using $A_i = U_iS_iV_i^{T}$ and the distributivity of matrix multiplication we can simplify the equation to: \\
+
+\[
+U_i(b - A_ix_i) = b - A_ix_i
+\]
+\newline
+The matrix $U$ has columns that form a set of orthonormal vectors (further explanation in the previous proof). Multiplying a vector by $U$ will only change it's direction, but not the norm. This means that multiplying $b - A_ix_i$ by $U_i$ will not change it's norm. If we introduce back the norm on both sides we have shown that $||b - A_ix_i|| = ||U_i^{T}b - S_iy_i||$. \\
+\[
+||U_i(b - A_ix_i)|| = ||b - A_ix_i||
+\]
+
+
+
+
+
+
 \end{document}
