@@ -4,4 +4,5 @@
 \contentsline {section}{\numberline {3}Used methods}{6}
 \contentsline {subsection}{\numberline {3.1}Least squares method}{6}
 \contentsline {subsection}{\numberline {3.2}Singular-value decomposition (SVD) method}{8}
-\contentsline {section}{\numberline {4}Theoretical basis}{8}
+\contentsline {section}{\numberline {4}Theoretical basis}{10}
+\contentsline {section}{\numberline {5}Conclusion}{12}
