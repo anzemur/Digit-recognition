@@ -228,7 +228,7 @@ The matrix $U$ has columns that form a set of orthonormal vectors (further expla
 \newpage
 \section{Conclusion}
 
-
+We used SVD to generate matrices $U$ $S$ and $V^T$. For recognition we can only store matrices $U$ and $S$. Because of the way that SVD works, the first $n$ singular values and left singular vectors hold most of the "patterns" or information needed for recognition. Because of this we can use only first $n$ singular values and left singular vectors for recognition, and still keep good accuracy at recognition. This means that we can only store those first $n$ values for each number. By doing this we reduce the size of the files (a file with U and V matrix for 80 learning examples can be as big as 10MB) and accelerate the calculation since there is less multiplication. We achieved best accuracy of 96\% when using 11 singular values. Using a lot of singular values can actually reduce the accuracy, since there is a lot of noise in the higher left singular vectors.
 
 
 
